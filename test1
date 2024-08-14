@@ -1,0 +1,23 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract Student {
+    // กำหนดตัวแปรแบบ private เพื่อเก็บข้อมูลนักศึกษา
+    uint256 private studentId;
+    string private firstName;
+    string private lastName;
+    uint8 private age; // ใช้ uint8 เพราะอายุไม่น่าจะเกิน 255
+
+    // ฟังก์ชันเพื่อตั้งค่า รหัสนักศึกษา ชื่อ นามสกุล และอายุ
+    function setStudentData(uint256 _studentId, string memory _firstName, string memory _lastName, uint8 _age) public {
+        studentId = _studentId;
+        firstName = _firstName;
+        lastName = _lastName;
+        age = _age;
+    }
+
+    // ฟังก์ชันเพื่อแสดง รหัสนักศึกษา ชื่อ นามสกุล และอายุ
+    function getStudentData() public view returns (uint256, string memory, string memory, uint8) {
+        return (studentId, firstName, lastName, age);
+    }
+}
